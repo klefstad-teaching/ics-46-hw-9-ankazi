@@ -23,6 +23,10 @@ vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& prev
 
         // Relax edges
         for (const Edge& edge : G[u]) {
+
+			// check and skip negative weight
+			if (edge.weight < 0) continue;
+			
             int v = edge.dst;
             int weight = edge.weight;
 
